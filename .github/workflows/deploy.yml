@@ -33,6 +33,7 @@ jobs:
 
       - name: Deploy Tasks 1-5 to AKS
         run: |
+          kubectl create namespace app-1 --dry-run=client -o yaml | kubectl apply -f -
           kubectl apply -f 1-deployment.yaml
           kubectl apply -f 2-service.yaml
           kubectl apply -f 3-hpa.yaml
